@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hybrid You — Workout Tracker V12 · 4 Day + Exercise Swaps</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hybrid You — Workout Tracker V14</title><style>
 :root{--bg:#061019;--panel:#0d1b27;--line:#294355;--text:#f5f8fb;--muted:#9eb0bd;--blue:#159cff;--green:#18c77a}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% 0,#173c53 0,transparent 32%),linear-gradient(135deg,#051019,#0b1824);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif}.wrap{max-width:1180px;margin:auto;padding:16px}
 .hero{border:1px solid var(--line);border-radius:22px;overflow:hidden;min-height:210px;padding:28px;background:linear-gradient(90deg,#071019ee,#07101988),linear-gradient(135deg,#0a1a26,#12364a) center 4%/cover no-repeat}.eyebrow{letter-spacing:3px;color:#a9c2d0;font-size:12px;font-weight:800}.hero h1{font-size:clamp(32px,5vw,52px);margin:7px 0}.hero p{color:#d0dce4;font-size:16px}
@@ -100,7 +100,15 @@
 .swapOption.selected{border-color:#1d9bf0;background:#0d2636}
 .swapCurrent{margin-top:8px;padding:9px 11px;border-radius:9px;background:#102c3b;color:#a9dfff;font-size:12px}
 </style>
-</head><body><div class="wrap"><section class="hero"><div class="eyebrow">HYBRID YOU · TRAIN · TRACK · PROGRESS</div><h1>4-Day Hybrid Programme</h1><p>Build muscle · improve fitness · run a 5K · weekends off</p></section><nav class="tabs">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#061019">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hybrid You">
+<link rel="icon" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+</head><body><div class="wrap"><section class="hero"><div class="eyebrow">HYBRID YOU · TRAIN · TRACK · PROGRESS · V14</div><h1>4-Day Hybrid Programme</h1><p>Build muscle · improve fitness · run a 5K · weekends off</p></section><nav class="tabs">
 <button type="button" class="tab active" data-day="0"><b>MON</b><small>Upper Strength</small></button>
 <button type="button" class="tab" data-day="1"><b>TUE</b><small>Lower Strength</small></button>
 <button type="button" class="tab" data-day="2"><b>THU</b><small>Upper + Lower</small></button>
@@ -391,6 +399,15 @@ function chooseSwap(btn){
   current.className='swapCurrent';
   current.innerHTML='<b>Swap selected:</b> '+btn.dataset.alt+'<br><span>Use the same logging area below for your replacement exercise.</span>';
   panel.appendChild(current);
+}
+</script>
+
+<script id="v14-pwa">
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./service-worker.js', {scope: './'})
+      .catch(function (err) { console.log('Hybrid You offline support unavailable:', err); });
+  });
 }
 </script>
 </body></html>
